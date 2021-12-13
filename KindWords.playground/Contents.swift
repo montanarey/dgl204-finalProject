@@ -13,3 +13,12 @@ import Foundation
 enum Category {
     case selfLove, gratitude, health, relationships, personality, motivation
 }
+
+// Affirmation protocol: information about any type of affirmation
+protocol Affirmation {
+    var content: String {get}
+    var category: Category {get}
+    var featured: Bool {get}
+    func toggle()
+    func display() -> String
+}

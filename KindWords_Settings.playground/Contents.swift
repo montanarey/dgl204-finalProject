@@ -46,3 +46,19 @@ var widget = false // default: disabled
 func toggleSetting( setting: inout Bool) {
     setting = !setting
 }
+
+
+// TEST CODE
+
+// Settings
+print(theme) // should print true
+toggleSetting(setting: &theme)
+print(theme) // should print false
+
+print(notifications) // should print false
+toggleSetting(setting: &notifications)
+print(notifications) // should print true
+
+print(widget) // should print false
+toggleSetting(setting: &widget)
+print(widget) // should print true

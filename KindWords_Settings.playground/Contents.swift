@@ -46,3 +46,10 @@ var notifications = false // default: disabled
 func toggleNotifications() {
     notifications = !notifications
 }
+
+// Widget Preference
+var widget = false // default: disabled
+
+func toggleWidget() {
+    widget = !widget
+}

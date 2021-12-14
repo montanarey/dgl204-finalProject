@@ -39,3 +39,10 @@ var theme = true // default is light mode (true)
 func toggleTheme() { // switches between light and dark mode
     theme = !theme
 }
+
+// Notifications Preference
+var notifications = false // default: disabled
+
+func toggleNotifications() {
+    notifications = !notifications
+}

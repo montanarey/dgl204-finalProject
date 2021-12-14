@@ -36,20 +36,13 @@ class Backgrounds {
 // Light/Dark Mode
 var theme = true // default is light mode (true)
 
-func toggleTheme() { // switches between light and dark mode
-    theme = !theme
-}
-
 // Notifications Preference
 var notifications = false // default: disabled
-
-func toggleNotifications() {
-    notifications = !notifications
-}
 
 // Widget Preference
 var widget = false // default: disabled
 
-func toggleWidget() {
-    widget = !widget
+// Enable/Disable settings toggle
+func toggleSetting( setting: inout Bool) {
+    setting = !setting
 }

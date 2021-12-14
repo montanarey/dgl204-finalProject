@@ -79,8 +79,15 @@ class AffirmationGroup {
     
 }
 
+// Displays (prints for now) a random affirmation from the Affirmation group
+func displayRandom(from affirmGroup: AffirmationGroup) {
+    let selected = Int.random(in: 1...affirmGroup.group.count)
+    print(affirmGroup.group[selected].content)
+}
+
 
 // ----- TEST CODE -----
+
 // Creating affirmations
 var affirm1 = Affirmation(content: "I get better every single day", category: Category.selfLove)
 var affirm2 = Affirmation(content: "I am important", category: Category.selfLove, display: false)
@@ -91,4 +98,7 @@ var affirmGroup = AffirmationGroup()
 affirmGroup.createAffirmation(content: "I have people who love me", category: Category.relationships)
 affirmGroup.createAffirmation(content: "I am doing my best")
 affirmGroup.addAffirmation(affirmation: affirm1)
+
+// displaying (printing) a random affirmation from the AffirmationGroup
+displayRandom(from: affirmGroup)
 

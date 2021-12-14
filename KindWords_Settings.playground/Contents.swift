@@ -33,3 +33,9 @@ class Backgrounds {
     }
 }
 
+// Light/Dark Mode
+var theme = true // default is light mode (true)
+
+func toggleTheme() { // switches between light and dark mode
+    theme = !theme
+}

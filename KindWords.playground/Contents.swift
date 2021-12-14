@@ -59,14 +59,18 @@ class Affirmation: Message {
 class AffirmationGroup {
     var group: [Affirmation]
     
-    func addAffirmation(content: String, category: Category) {
+    func createAffirmation(content: String, category: Category) {
         let newAffirmation = Affirmation(content: content, category: category)
         group.append(newAffirmation)
     }
     
-    func addAffirmation(content: String) {
+    func createAffirmation(content: String) {
         let newAffirmation = Affirmation(content: content)
         group.append(newAffirmation)
+    }
+    
+    func addAffirmation(affirmation: Affirmation) {
+        group.append(affirmation)
     }
     
     init() {
@@ -77,6 +81,14 @@ class AffirmationGroup {
 
 
 // ----- TEST CODE -----
+// Creating affirmations
 var affirm1 = Affirmation(content: "I get better every single day", category: Category.selfLove)
 var affirm2 = Affirmation(content: "I am important", category: Category.selfLove, display: false)
 var affirm3 = Affirmation(content: "I am in control of my life")
+
+// Creating an affirmation group and adding affirmations
+var affirmGroup = AffirmationGroup()
+affirmGroup.createAffirmation(content: "I have people who love me", category: Category.relationships)
+affirmGroup.createAffirmation(content: "I am doing my best")
+affirmGroup.addAffirmation(affirmation: affirm1)
+

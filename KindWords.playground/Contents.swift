@@ -55,6 +55,26 @@ class Affirmation: Message {
     }
 }
 
+// AffirmationGroup class: holds all affirmations and methods for handling them
+class AffirmationGroup {
+    var group: [Affirmation]
+    
+    func addAffirmation(content: String, category: Category) {
+        let newAffirmation = Affirmation(content: content, category: category)
+        group.append(newAffirmation)
+    }
+    
+    func addAffirmation(content: String) {
+        let newAffirmation = Affirmation(content: content)
+        group.append(newAffirmation)
+    }
+    
+    init() {
+        group = []
+    }
+    
+}
+
 
 // ----- TEST CODE -----
 var affirm1 = Affirmation(content: "I get better every single day", category: Category.selfLove)

@@ -11,7 +11,7 @@ import Foundation
 
 // Category enum: categories of affirmations
 enum Category {
-    case selfLove, gratitude, health, relationships, personality, motivation
+    case selfLove, gratitude, health, relationships, motivation
 }
 
 // Message protocol: the backbone of an affirmation. Has content, a display state, a toggle display method, and a category
@@ -57,4 +57,6 @@ class Affirmation: Message {
 
 
 // ----- TEST CODE -----
-
+var affirm1 = Affirmation(content: "I get better every single day", category: Category.selfLove)
+var affirm2 = Affirmation(content: "I am important", category: Category.selfLove, display: false)
+var affirm3 = Affirmation(content: "I am in control of my life")

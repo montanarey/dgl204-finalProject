@@ -85,6 +85,17 @@ func displayRandom(from affirmGroup: AffirmationGroup) -> String {
     return affirmGroup.group[selected].content
 }
 
+// Returns a random affirmation from a specific Category of Affirmation
+func displayCategory(category: Category, affirmGroup: AffirmationGroup) -> String {
+    let categoryGroup = AffirmationGroup()
+    for affirmation in affirmGroup.group {
+        if affirmation.category == category {
+            categoryGroup.addAffirmation(affirmation: affirmation)
+        }
+    }
+    let selected = Int.random(in: 1...affirmGroup.group.count)
+    return affirmGroup.group[selected].content
+}
 
 
 // ----- TEST CODE -----
@@ -100,6 +111,9 @@ affirmGroup.createAffirmation(content: "I have people who love me", category: Ca
 affirmGroup.createAffirmation(content: "I am doing my best")
 affirmGroup.addAffirmation(affirmation: affirm1)
 
-// displaying (printing) a random affirmation from the AffirmationGroup
+// displaying a random affirmation from the AffirmationGroup
 displayRandom(from: affirmGroup)
+displayRandom(from: affirmGroup)
+
+// Displaying a random affirmation from a specific Category
 

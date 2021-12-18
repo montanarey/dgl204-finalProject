@@ -81,8 +81,9 @@ func displayRandom(from affirmGroup: AffirmationGroup) -> String {
 }
 
 // Returns a random affirmation from a specific Category of Affirmation
+func displayCategory(category: Category, overallGroup: AffirmationGroup) -> String {
     var categoryGroup = AffirmationGroup() // new empty group
-    for affirm in affirmGroup.group {
+    for affirm in overallGroup.group {
         if affirm.category == category {
             categoryGroup.addAffirmation(affirmation: affirm)
         }
@@ -116,3 +117,4 @@ print(displayRandom(from: testAffirmGroup))
 print(displayRandom(from: testAffirmGroup))
 
 // Displaying a random affirmation from a specific Category
+print(displayCategory(category: Category.selfLove, overallGroup: testAffirmGroup))

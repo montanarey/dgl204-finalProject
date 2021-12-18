@@ -14,7 +14,7 @@ enum Category {
     case selfLove, gratitude, health, relationships, motivation
 }
 
-// Message protocol: the backbone of an affirmation. Has content, a display state, a toggle display method, and a category
+// Message protocol: the backbone of an affirmation. Has content, a display state, a toggle display method, and a Category.
 protocol Message {
     var content: String {get set}
     var display: Bool {get set} // whether the affirmation is currently being displayed
@@ -79,11 +79,12 @@ class AffirmationGroup {
     
 }
 
-// Displays (prints for now) a random affirmation from the Affirmation group
-func displayRandom(from affirmGroup: AffirmationGroup) {
+// Returns a random affirmation from the Affirmation group
+func displayRandom(from affirmGroup: AffirmationGroup) -> String {
     let selected = Int.random(in: 1...affirmGroup.group.count)
-    print(affirmGroup.group[selected].content)
+    return affirmGroup.group[selected].content
 }
+
 
 
 // ----- TEST CODE -----

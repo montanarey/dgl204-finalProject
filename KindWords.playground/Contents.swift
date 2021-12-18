@@ -56,45 +56,43 @@ class Affirmation: Message {
 }
 
 // AffirmationGroup class: holds all affirmations and methods for handling them
-class AffirmationGroup {
-    var group: [Affirmation]
+struct AffirmationGroup {
+    var group: [Affirmation] = []
     
-    func createAffirmation(content: String, category: Category) {
+    mutating func createAffirmation(content: String, category: Category) {
         let newAffirmation = Affirmation(content: content, category: category)
         group.append(newAffirmation)
     }
     
-    func createAffirmation(content: String) {
+    mutating func createAffirmation(content: String) {
         let newAffirmation = Affirmation(content: content)
         group.append(newAffirmation)
     }
     
-    func addAffirmation(affirmation: Affirmation) {
+    mutating func addAffirmation(affirmation: Affirmation) {
         group.append(affirmation)
     }
-    
-    init() {
-        group = []
-    }
-    
 }
 
 // Returns a random affirmation from the Affirmation group
 func displayRandom(from affirmGroup: AffirmationGroup) -> String {
-    let selected = Int.random(in: 1...affirmGroup.group.count)
+    let selected = Int.random(in: 1..<affirmGroup.group.count)
     return affirmGroup.group[selected].content
 }
 
 // Returns a random affirmation from a specific Category of Affirmation
 func displayCategory(category: Category, affirmGroup: AffirmationGroup) -> String {
-    let categoryGroup = AffirmationGroup()
-    for affirmation in affirmGroup.group {
-        if affirmation.category == category {
-            categoryGroup.addAffirmation(affirmation: affirmation)
+    var categoryGroup = AffirmationGroup() // new empty group
+    for affirm in affirmGroup.group {
+        if affirm.category == category {
+            categoryGroup.addAffirmation(affirmation: affirm)
         }
     }
-    let selected = Int.random(in: 1...affirmGroup.group.count)
-    return affirmGroup.group[selected].content
+    guard categoryGroup.group.count < 1 else {
+        return "error: No Affirmations in this category"
+    }
+    let selected = Int.random(in: 1..<categoryGroup.group.count)
+    return categoryGroup.group[selected].content
 }
 
 
@@ -106,14 +104,16 @@ var affirm2 = Affirmation(content: "I am important", category: Category.selfLove
 var affirm3 = Affirmation(content: "I am in control of my life")
 
 // Creating an affirmation group and adding affirmations
-var affirmGroup = AffirmationGroup()
-affirmGroup.createAffirmation(content: "I have people who love me", category: Category.relationships)
-affirmGroup.createAffirmation(content: "I am doing my best")
-affirmGroup.addAffirmation(affirmation: affirm1)
+var testAffirmGroup = AffirmationGroup()
+
+testAffirmGroup.createAffirmation(content: "I have people who love me", category: Category.relationships)
+testAffirmGroup.createAffirmation(content: "I am doing my best")
+testAffirmGroup.addAffirmation(affirmation: affirm1)
+testAffirmGroup.addAffirmation(affirmation: affirm2)
+testAffirmGroup.addAffirmation(affirmation: affirm3)
 
 // displaying a random affirmation from the AffirmationGroup
-displayRandom(from: affirmGroup)
-displayRandom(from: affirmGroup)
+print(displayRandom(from: testAffirmGroup))
+print(displayRandom(from: testAffirmGroup))
 
 // Displaying a random affirmation from a specific Category
-

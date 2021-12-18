@@ -108,13 +108,16 @@ var testAffirmGroup = AffirmationGroup()
 
 testAffirmGroup.createAffirmation(content: "I have people who love me", category: Category.relationships)
 testAffirmGroup.createAffirmation(content: "I am doing my best")
+testAffirmGroup.createAffirmation(content: "I can achieve my goals", category: Category.motivation)
 testAffirmGroup.addAffirmation(affirmation: affirm1)
 testAffirmGroup.addAffirmation(affirmation: affirm2)
 testAffirmGroup.addAffirmation(affirmation: affirm3)
 
 // displaying a random affirmation from the AffirmationGroup
+print("Random affirmations:")
 print(displayRandom(from: testAffirmGroup))
 print(displayRandom(from: testAffirmGroup))
 
 // Displaying a random affirmation from a specific Category
+print("Affirmation from Self Love category:")
 print(displayCategory(category: Category.selfLove, overallGroup: testAffirmGroup))

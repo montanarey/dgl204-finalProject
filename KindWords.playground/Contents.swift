@@ -81,14 +81,13 @@ func displayRandom(from affirmGroup: AffirmationGroup) -> String {
 }
 
 // Returns a random affirmation from a specific Category of Affirmation
-func displayCategory(category: Category, affirmGroup: AffirmationGroup) -> String {
     var categoryGroup = AffirmationGroup() // new empty group
     for affirm in affirmGroup.group {
         if affirm.category == category {
             categoryGroup.addAffirmation(affirmation: affirm)
         }
     }
-    guard categoryGroup.group.count < 1 else {
+    guard categoryGroup.group.count > 1 else {
         return "error: No Affirmations in this category"
     }
     let selected = Int.random(in: 1..<categoryGroup.group.count)
